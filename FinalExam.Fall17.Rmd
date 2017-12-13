@@ -1,0 +1,169 @@
+---
+title: "Final Examination"
+runtime: shiny
+output: html_document
+---
+
+# Fall 2017 TRGN510 Final Exam
+
+This is the final exam markdown for TRGN510. You may not consult other students.  You are expected to use the internet.  You should double check your work. It is due Thursday December 14th @ 1PM.
+
+  Please edit the markdown such by either (1) striking *italicized* words that are incorrect using ~~strikethrough~~ (\~\~strikethrough\~\~), (2) deleting the incorrect *italicized* terms, or (3) putting the correct answer where requested.
+
+See below for an example.  We see that both _true_ and _false_ are options.  To answer the question, we delete _false_
+
+### Example
+
+**Before the exam**
+
+* It is __true__ __false__ that the earth is round and the average temperature of the earth has risen within our lifetime
+
+**After you edited by deleting __false__ or crossing it out, any one of these is ok **
+
+* It is __true__ that the earth is round and the average temperature of the earth has risen within our lifetime
+* It is __true__ ~~_false_~~ that the earth is round and the average temperature of the earth has risen within our lifetime
+
+***
+
+## Exam
+
+### Question 1: "5" is a __String__ datatype.
+
+### Question 2:. 5 is an __Integer__ datatype.
+
+### Question 3: "" is a __Null__ datatype.
+
+### Question 4: 2.0 is a __Float__ datatype.
+
+### Question 5: "true" is a __String__ datatype.
+
+### Question 6: TRUE is a  __Boolean__ datatype.
+
+### Question 7: When we run the command *j<-c("d",1,"b")* in *R*, creates a __dataframe__ stored in *a*.
+
+### Question 8: Please load in the iris dataset from the ggplot2 library into a variable with the name "mydata" below, this should be done within an R codeblock.
+
+```{r echo=TRUE}
+mydata <- iris
+
+```
+
+```{r}
+data.frame(mydata)
+```
+
+
+### Question 9. What type of data is found within mydata$Species, from the above question 8?
+__The type of data is a List__
+
+### Question 10. Create a codeblock to find the median of Sepal.Width
+
+```{r}
+median(mydata$Sepal.Width)
+```
+
+
+### Question 11. Create a R codeblock to create a violin plot of Sepal.Width from the factors in Species using ggplot2
+
+```{r echo=FALSE}
+library("ggplot2")
+```
+
+
+```{r}
+y <- ggplot(mydata, aes(factor(Species), Sepal.Width)) 
+
+y + geom_violin(aes(fill = factor(Species)))
+```
+
+
+### Question 12. Within a codeblock and using between 140 and 740 characters, describe the differences between GPLV3 and MIT Licenses, and store that as a String in the variable "myanswer"
+
+
+```{r, echo=FALSE}
+myanswer <- "GPLV3 is a 'copyleft' license which makes it impossible for prospective users of the code to make changes to the code that they do not intend to make publicly available, where as MIT is a permissive license which requires the person using the code to repoduce the license and then they are not restricted to do what they want with the code"
+```
+
+```{r}
+myanswer 
+```
+
+
+### Question 13. Write an R code block that provides the number of characters in "myanswer".
+
+```{r}
+nchar(myanswer)
+```
+
+
+### Question 14. Write an R codeblock that replaces "MIT" with "Massachusetts Institute of Technology" and "GPU" with "General Public License" within "myanswer"
+
+
+```{r}
+myanswer <- gsub("MIT","Massachusetts Institute of Technology", myanswer) 
+
+myanswer <- gsub ("GPL", "General Public License", myanswer)
+
+```
+
+```{r, echo=FALSE}
+myanswer
+```
+
+
+
+### Question 15. The data below is typically __json__ 
+
+> data ={
+        name: "John",
+        address: {
+            street: "459 E Jon St.",
+            city: "Springfield,
+            state: "Illinois",
+        },
+        age:14
+    }
+    
+### Question 16. In the example above, data.address is an __unordered__ embedded document (or list)
+
+* In a bash code block, write a 1 line command that counts number hidden files in your home directory (hidden means starts with a .). The example should use a pipe, ls, and wc
+
+
+```{bash}
+#secret files:
+ls -la | grep '^-' |awk '{print $9}' |egrep '^\.[^\.]' |wc -l
+```
+
+### Question 17. What is the first line of a BASH script?
+
+The Shebang line  __#!/bin/bash__
+
+### Question 18. Please create a github repository 'YourNameFinalExam', replacing with your name and using camelcase.  Please put your completed exam in it, and share this exam with me.
+
+## Done! Had a Blast!
+
+***
+
+
+<!-- The text below is just to reformat the page, using css styling -->
+```{r results="asis", echo = FALSE}
+cat("
+<style>
+h1 {
+    background-color: #990000;
+    color:#FFF;
+    text-align:center;
+}
+h2 {
+   background-color:#f3d6d6;
+   text-align:center;
+   color:#333
+}
+h3 {
+   margin-left:-5px;
+   color:#333
+}
+
+</style>
+")
+```
